@@ -5,11 +5,11 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json()); // for parsing application/json
 
-// MySQL connection setup
+app.use(cors());
+app.use(bodyParser.json());
+
+
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -25,7 +25,7 @@ db.connect((err) => {
   console.log('Connected to database.');
 });
 
-// GET route to fetch patient data
+
 app.get('/getDetails', (req, res) => {
   const query = "SELECT * FROM Hcare";
   db.query(query, (err, results) => {
@@ -36,7 +36,7 @@ app.get('/getDetails', (req, res) => {
   });
 });
 
-// POST route to handle patient data
+
 app.post('/patient', (req, res) => {
   const { name, age, address } = req.body;
 
@@ -65,7 +65,39 @@ app.delete('/deletePatient/:id',(req,res)=>{
     })
 })
 
-// Start server
+app.post('/signup', (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    return res.status(400).send('Username and password are required');
+  }
+  const query = 'INSERT INTO Users (username, password) VALUES (?, ?)';
+  db.query(query, [username, password], (err, result) => {
+    if (err) {
+      return res.status(500).send('Error saving data to database');
+    }
+    res.status(201).send('User created successfully');
+  });
+});
+
+// Sign-in route
+app.post('/signin', (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    return res.status(400).send('Username and password are required');
+  }
+  const query = 'SELECT * FROM Users WHERE username = ? AND password = ?';
+  db.query(query, [username, password], (err, results) => {
+    if (err) {
+      return res.status(500).send('Error querying database');
+    }
+    if (results.length > 0) {
+      res.status(200).send('Login successful');
+    } else {
+      res.status(401).send('Invalid credentials');
+    }
+  });
+});
+
 app.listen(4001, () => {
   console.log('Server is listening on port 4001');
 });
