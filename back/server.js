@@ -81,7 +81,7 @@ app.post('/signup', (req, res) => {
 
 // Sign-in route
 app.post('/signin', (req, res) => {
-  const { username, password } = req.body;
+  const { username, password } = req.body
   if (!username || !password) {
     return res.status(400).send('Username and password are required');
   }
