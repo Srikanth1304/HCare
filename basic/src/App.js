@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
-import './App.css';
-import Login from './PageComponents/Login';
-import FetchApi from './PageComponents/FechApi';
-
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './useNav/Header';
+import CompA from './useNav/CompA';
+import CompB from './useNav/CompB';
 
 function App() {
-  
-
   return (
-    <div>
-     <FetchApi/>
-      
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
-
 export default App;

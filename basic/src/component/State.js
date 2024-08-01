@@ -18,7 +18,7 @@ const State=()=>{
             ...prev,age:prev.age-1
         }))
     }
- 
+    
 
 
     const[num,setNum]=useState(2);
