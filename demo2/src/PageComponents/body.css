@@ -1,0 +1,13 @@
+.body{
+    text-align: center;
+    flex: 1;
+    padding: 20px;
+    background:black;
+    color:white;
+}
+h2{
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-display:3px;
+    
+}

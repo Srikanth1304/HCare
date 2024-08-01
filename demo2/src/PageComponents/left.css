@@ -1,0 +1,13 @@
+.left {
+    text-align: center; /* Center align the text content */
+}
+
+.co {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0;
+}
+
+.co li {
+    display: inline-block; /* Display list items horizontally */
+    margin: 0 10px; /* Adjust spacing between list items */
+}

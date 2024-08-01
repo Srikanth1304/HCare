@@ -1,0 +1,23 @@
+/* src/App.css or a new CSS file */
+
+.patient-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+  
+  .list {
+    list-style-type: none;
+    padding: 0;
+    margin: 5px 0;
+    text-align: center;
+  } 
+  
+  .list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  

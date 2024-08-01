@@ -1,0 +1,32 @@
+.head{
+    background-color:black ;
+    height:80px;
+    margin-bottom: 5px;
+}
+.tit{
+    color:rgb(31, 192, 31);
+    font-weight:bolder;
+    margin-left: 5px;
+    margin-top: 10px;
+    padding:5px;
+    ;}
+.nav{
+    display: flex;
+    gap: 20px; 
+    margin-top: 22px;
+}
+
+.nav a{
+    color:whitesmoke;
+    text-decoration: none;  
+    margin-bottom: 5px;
+
+
+}
+.head-right{
+    margin-left: 300px;
+}
+.head-right a{
+    margin-right:20px;
+}
+
